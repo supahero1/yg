@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if test $# -lt 1
+then
+	echo "usage: `basename $0` <command> [<args>...]" 1>&2
+	exit 1
+fi
+
+command="$1" && shift
+case $command in
+lex) ;&
+lexer) ;&
+tokenizer) ;&
+tokenize) node comp/tokenize.mjs $* ;;
+ast_builder) ;&
+ast_build) ;&
+ast) node comp/ast_build.mjs $* ;;
+esac
